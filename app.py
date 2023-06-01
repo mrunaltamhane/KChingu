@@ -2,11 +2,13 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
+import config
 
+api_key = config.API_KEY
 st.set_page_config(layout="wide")
 def fetch_poster_page(kdrama_id):
     response = requests.get(
-        'https://api.themoviedb.org/3/tv/{}?api_key=e078ce48c8a8319e3d91498c283335bb&&language=en-US'.format(kdrama_id))
+        'https://api.themoviedb.org/3/tv/{}?api_key=api_key&&language=en-US'.format(kdrama_id))
     data = response.json()
 
     if 'poster_path' in data and data['poster_path'] is not None:
