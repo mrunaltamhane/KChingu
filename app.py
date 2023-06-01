@@ -4,12 +4,14 @@ import pandas as pd
 import requests
 import config
 
-api_key = config.API_KEY
+api = config.API_KEY
+
 st.set_page_config(layout="wide")
 def fetch_poster_page(kdrama_id):
     response = requests.get(
-        'https://api.themoviedb.org/3/tv/{}?api_key=api_key&&language=en-US'.format(kdrama_id))
+        'https://api.themoviedb.org/3/tv/{}?api_key={}&language=en-US'.format(kdrama_id, api))
     data = response.json()
+    print(data)
 
     if 'poster_path' in data and data['poster_path'] is not None:
         poster_url = "https://image.tmdb.org/t/p/original" + data['poster_path']
