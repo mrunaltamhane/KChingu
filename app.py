@@ -55,7 +55,7 @@ kdramas.drop(236, axis=0, inplace=True)
 similarity = pickle.load(open('similarity.pkl', 'rb'))
 st.title('KChingu')
 kdrama_selected = st.selectbox(
-    'Select the Kdrama you have watched', kdramas['Name'])
+    'Select a Kdrama you have watched', kdramas['Name'])
 
 if st.button('Recommend'):
     names,posters,homepage = recommend(kdrama_selected)
