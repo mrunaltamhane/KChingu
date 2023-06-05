@@ -2,9 +2,9 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
-import config
 
-api = config.API_KEY
+
+api = st.secrets["api_key"]
 
 st.set_page_config(layout="wide")
 def fetch_poster_page(kdrama_id):
